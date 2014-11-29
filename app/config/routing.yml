@@ -2,3 +2,5 @@ gu_bru_je_core:
     resource: "@GuBruJeCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

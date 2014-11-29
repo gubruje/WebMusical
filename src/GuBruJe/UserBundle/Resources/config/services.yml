@@ -1,0 +1,7 @@
+parameters:
+#    gu_bru_je_user.example.class: GuBruJe\UserBundle\Example
+
+services:
+#    gu_bru_je_user.example:
+#        class: %gu_bru_je_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
