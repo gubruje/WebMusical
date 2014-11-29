@@ -36,15 +36,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse ">
                 {{ knp_menu_render('GuBruJeCoreBundle:Builder:mainMenu', { 'style': 'navbar' }) }}
-                <form class="navbar-form navbar-right" role="form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
+                {# On affiche un coin espace membre :
+            * Si le membre est identifié : lien de déconnexion
+            * Sinon : formulaire de connexion #}
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    {{ knp_menu_render('GuBruJeCoreBundle:Builder:userMenu', { 'style': 'navbar-right' }) }}
+                   {# <ul class="nav nav-pills nav-stacked">
+                        <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                    </ul>#}
+                    {# On affiche le formulaire de login, sauf sur la page de connexion #}
+                {% elseif app.request.attributes.get('_route') != 'fos_user_security_login' %}
+                    {{ render(controller('GuBruJeUserBundle:Security:login')) }}
+                {% endif %}
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
