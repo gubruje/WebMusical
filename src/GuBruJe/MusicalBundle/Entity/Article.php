@@ -42,6 +42,10 @@ abstract class Article
 
 
 
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
     /**
      * Set titre
      *

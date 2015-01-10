@@ -2,5 +2,9 @@ gu_bru_je_musical:
     resource: "@GuBruJeMusicalBundle/Resources/config/routing.yml"
     prefix:   /
 
+GuBruJeMusicalBundle_information:
+        resource: "@GuBruJeMusicalBundle/Resources/config/routing/information.yml"
+        prefix:   /information
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

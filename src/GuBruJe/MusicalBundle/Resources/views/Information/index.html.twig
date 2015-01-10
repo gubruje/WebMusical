@@ -1,0 +1,28 @@
+{% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
+
+{% block musical_body -%}
+    <h1 class="page-header">Information <small>list</small></h1>
+
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('information_show', { 'id': entity.id }) }}">{{ entity.titre }}</a></td>
+                <td>
+                        <a class="btn btn-default" href="{{ path('information_show', { 'id': entity.id }) }}">Voir</a>
+                        <a class="btn btn-default" href="{{ path('information_edit', { 'id': entity.id }) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            <a class="btn btn-primary" href="{{ path('information_new') }}">
+                Ajouter une information
+                </a>
+    {% endblock %}

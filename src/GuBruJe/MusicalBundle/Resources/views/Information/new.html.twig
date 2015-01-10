@@ -1,0 +1,9 @@
+{% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
+
+{% block musical_body -%}
+    <h1 class="page-header">Information <small>création</small></h1>
+    {{ form(form) }}
+        <a class="btn btn-default" href="{{ path('information') }}">
+            retour
+        </a>
+{% endblock %}

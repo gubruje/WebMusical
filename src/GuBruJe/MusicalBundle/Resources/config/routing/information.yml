@@ -1,0 +1,30 @@
+information:
+    path:     /
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:index" }
+
+information_show:
+    path:     /{id}/show
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:show" }
+
+information_new:
+    path:     /new
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:new" }
+
+information_create:
+    path:     /create
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:create" }
+    requirements: { _method: post }
+
+information_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:edit" }
+
+information_update:
+    path:     /{id}/update
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:update" }
+    requirements: { _method: post|put }
+
+information_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GuBruJeMusicalBundle:Information:delete" }
+    requirements: { _method: post|delete }
