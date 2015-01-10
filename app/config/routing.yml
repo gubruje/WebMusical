@@ -1,5 +1,5 @@
-gu_bru_je_core:
-    resource: "@GuBruJeCoreBundle/Resources/config/routing.yml"
+gu_bru_je_musical:
+    resource: "@GuBruJeMusicalBundle/Resources/config/routing.yml"
     prefix:   /
 
 fos_user:

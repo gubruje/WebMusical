@@ -1,0 +1,7 @@
+parameters:
+#    gu_bru_je_musical.example.class: GuBruJe\MusicalBundle\Example
+
+services:
+#    gu_bru_je_musical.example:
+#        class: %gu_bru_je_musical.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
