@@ -25,7 +25,7 @@ class Information extends Article
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="GuBruJe\MusicalBundle\Entity\TypeInformation")
+     * @ORM\ManyToOne(targetEntity="GuBruJeMusicalBundle\Entity\TypeInformation")
      * @ORM\JoinColumn(nullable=false)
      */
     private $typeInformation;
@@ -38,28 +38,5 @@ class Information extends Article
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set typeInformation
-     *
-     * @param \GuBruJeMusicalBundle\Entity\TypeInformation $typeInformation
-     * @return Information
-     */
-    public function setTypeInformation(\GuBruJe\MusicalBundle\Entity\TypeInformation $typeInformation)
-    {
-        $this->typeInformation = $typeInformation;
-
-        return $this;
-    }
-
-    /**
-     * Get typeInformation
-     *
-     * @return \GuBruJeMusicalBundle\Entity\TypeInformation 
-     */
-    public function getTypeInformation()
-    {
-        return $this->typeInformation;
     }
 }

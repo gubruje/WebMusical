@@ -12,6 +12,22 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('GuBruJeMusicalBundle:Home:index.html.twig');
+        $articles = array(
+            array('title' => 'titre 1',
+                  'contenu' => 'test paragraphe 1',
+                  
+                ),
+            array('title' => 'titre 2',
+                  'contenu' => 'test paragraphe 2',
+                  
+                ),
+            array('title' => 'titre 3',
+                  'contenu' => 'test paragraphe 3',
+                  
+                )
+        );
+        return $this->render('GuBruJeMusicalBundle:Home:index.html.twig', array(
+            'articles' => $articles,
+        ));
     }
 }
