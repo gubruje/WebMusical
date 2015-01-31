@@ -3,7 +3,6 @@
 namespace GuBruJe\MusicalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use GuBruJe\UserBundle\Entity\User;
 
 /**
  * Information
@@ -22,12 +21,6 @@ class Information extends Article
      */
     private $id;
 
-    /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="GuBruJe\UserBundle\Entity\User")
-     *
-     */
-    private $user;
     
     /**
      * @var integer
@@ -69,27 +62,5 @@ class Information extends Article
         return $this->typeInformation;
     }
 
-    /**
-     * Set user
-     *
-     * @param \GuBruJe\UserBundle\Entity\User $user
-     * @return Information
-     */
-    public function setUser(User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \GuBruJe\UserBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 
 }

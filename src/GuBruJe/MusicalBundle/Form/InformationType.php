@@ -11,8 +11,8 @@ class InformationType extends ArticleType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         parent::buildForm($builder, $options);
         //TODO ajouter le typeInformation dans le formulaire
-         //$builder
-            //->add('typeInformation', 'entity');
+         $builder
+            ->add('typeInformation');
     }
 
     /**

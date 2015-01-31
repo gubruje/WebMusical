@@ -3,6 +3,7 @@
 namespace GuBruJe\MusicalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GuBruJe\UserBundle\Entity\User;
 
 /**
  * Article
@@ -40,7 +41,12 @@ abstract class Article
      */
     private $date;
 
-
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="GuBruJe\UserBundle\Entity\User")
+     *
+     */
+    private $auteur;
 
     public function __construct()
     {
@@ -137,4 +143,28 @@ abstract class Article
     {
         return $this->date;
     }
+
+    /**
+     * Set user
+     *
+     * @param \GuBruJe\UserBundle\Entity\User $auteur
+     * @return Information
+     */
+    public function setAuteur(User $auteur)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \GuBruJe\UserBundle\Entity\User
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
 }

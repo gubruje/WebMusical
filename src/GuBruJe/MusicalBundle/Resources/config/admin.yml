@@ -1,0 +1,11 @@
+services:
+    sonata.admin.information:
+        class: GuBruJe\MusicalBundle\Admin\InformationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Informations" }
+        arguments:
+            - ~
+            - GuBruJe\MusicalBundle\Entity\Information
+            - ~
+        calls:
+            - [ setTranslationDomain, [GuBruJeMusicalBundle]]
