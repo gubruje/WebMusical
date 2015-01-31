@@ -10,10 +10,15 @@ namespace GuBruJe\UserBundle\Controller;
 
 use FOS\UserBundle\Controller\SecurityController as BaseController;
 
+/**
+ * Class SecurityController
+ * @package GuBruJe\UserBundle\Controller
+ */
 class SecurityController extends BaseController
 {
     /**
      * On modifie la façon dont est choisie la vue lors du rendu du formulaire de connexion
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     protected function renderLogin(array $data)
     {

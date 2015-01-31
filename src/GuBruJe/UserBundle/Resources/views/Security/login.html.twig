@@ -35,9 +35,11 @@
                 </label>
 
                 <button type="submit" id="_submit" name="_submit" class="btn">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default">Créer un compte</a>
             </div>
         </div>
     </form>
+
 
 {% endblock %}
 
