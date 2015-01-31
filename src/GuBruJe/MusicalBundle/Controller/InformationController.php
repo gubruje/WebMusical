@@ -35,7 +35,9 @@ class InformationController extends Controller
      */
     public function createAction(Request $request)
     {
+        $user = $this->getUser();
         $entity = new Information();
+        $entity->setUser($user);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -67,7 +69,7 @@ class InformationController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        //$form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -147,7 +149,7 @@ class InformationController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+       // $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }

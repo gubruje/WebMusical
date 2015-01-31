@@ -21,6 +21,13 @@ class Information extends Article
      */
     private $id;
 
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="GuBruJe\UserBundle\Entity\User")
+     *
+     */
+    private $user;
+
 
     /**
      * Get id
@@ -30,5 +37,30 @@ class Information extends Article
     public function getId()
     {
         return $this->id;
+    }
+
+
+
+    /**
+     * Set user
+     *
+     * @param \GuBruJe\UserBundle\Entity\User $user
+     * @return Information
+     */
+    public function setUser(\GuBruJe\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \GuBruJe\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

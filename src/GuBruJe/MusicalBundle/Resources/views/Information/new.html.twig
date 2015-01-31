@@ -2,8 +2,15 @@
 
 {% block musical_body -%}
     <h1 class="page-header">Information <small>création</small></h1>
-    {{ form(form) }}
-        <a class="btn btn-default" href="{{ path('information') }}">
-            retour
-        </a>
+    {{ form_start(form) }}
+    {{ form_row(form) }}
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" id="_submit" name="_submit" class="btn btn-primary">Créer</button>
+            <a class="btn btn-default" href="{{ path('information') }}">
+                retour
+            </a>
+        </div>
+    </div>
+    {{ form_end(form) }}
 {% endblock %}
