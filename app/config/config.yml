@@ -84,3 +84,11 @@ fos_user:
 knp_menu:
     twig:
         template: GuBruJeCoreBundle:Menu:bootstrap.html.twig
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
