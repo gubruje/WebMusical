@@ -3,6 +3,7 @@
 namespace GuBruJe\MusicalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GuBruJe\UserBundle\Entity\User;
 
 /**
  * Information
@@ -27,8 +28,15 @@ class Information extends Article
      *
      */
     private $user;
-
-
+    
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="GuBruJe\MusicalBundle\Entity\TypeInformation")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typeInformation;
+    
     /**
      * Get id
      *
@@ -40,6 +48,26 @@ class Information extends Article
     }
 
 
+    /**
+     * Set typeInformation
+     *
+     * @param \GuBruJe\MusicalBundle\Entity\TypeInformation $typeInformation
+     * @return Information
+     */
+    public function setTypeInformation(TypeInformation $typeInformation)
+    {
+        $this->typeInformation = $typeInformation;
+        return $this;
+    }
+
+    /* Get typeInformation
+    *
+     * @return \GuBruJeMusicalBundle\Entity\TypeInformation
+    */
+    public function getTypeInformation()
+    {
+        return $this->typeInformation;
+    }
 
     /**
      * Set user
@@ -47,7 +75,7 @@ class Information extends Article
      * @param \GuBruJe\UserBundle\Entity\User $user
      * @return Information
      */
-    public function setUser(\GuBruJe\UserBundle\Entity\User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
 
@@ -63,4 +91,5 @@ class Information extends Article
     {
         return $this->user;
     }
+
 }
