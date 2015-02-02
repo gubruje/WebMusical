@@ -26,12 +26,14 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
                 'mail' => 'admin.mail@mymail.com',
                 'pass' => 'admin',
                 'admin' => true,
+
             ),
             array(
                 'username' => 'member',
                 'mail' => 'member.mail@mymail.com',
                 'pass' => 'member',
                 'admin' => false,
+                'roles' => array('ROLE_MEMBER')
             ),
 
         );
@@ -43,6 +45,9 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setPlainPassword($u['pass']);
             $user->setEnabled(true);
             $user->setSuperAdmin((Boolean) $u['admin']);
+            if(isset($u['roles'])){
+                $user->setRoles($u['roles']);
+            }
 
             $this->addReference($u['username'], $user);
 

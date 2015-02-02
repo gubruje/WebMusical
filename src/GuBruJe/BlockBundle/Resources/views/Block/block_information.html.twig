@@ -4,9 +4,11 @@
     <div class="panel panel-default">
         <div class="panel-heading"> {{ settings.title }}</div>
         <div class="panel-body">
-            <ul>
+            <ul class="list-unstyled">
                 {% for information in informations %}
                     <li>
+
+                        <a href="{{ path('information_edit', { id:information.id}) }}" class="btn btn-default btn-xs" >Éditer</a>
                         <a href="{{ path('information_show', { id:information.id }) }}" rel="nofollow"
                            title="{{ information.titre }}">{{ information.titre }}</a>
                         <span class="label label-default pull-right">{{ information.statut.nom }}</span>

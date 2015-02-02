@@ -17,11 +17,10 @@ class Builder extends ContainerAware
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
-        $annoncesItem = $menu->addChild('Annonces', array('uri' => '#'))
-        ->setAttribute('dropdown', true);
-        $annoncesItem->addChild('Information', array('route' => 'information'));
-        // ... add more children
 
+        // ... add more children
+        $this->addMemberItem($menu);
+        $this->addAdminItem($menu);
         return $menu;
     }
 
@@ -40,5 +39,23 @@ class Builder extends ContainerAware
         // ... add more children
 
         return $menu;
+    }
+
+    public function addAdminItem($menu)
+    {
+        if($this->container->get('security.context')->isGranted('ROLE_ADMIN')){
+            $menu->addChild('Administration', array('route' => 'sonata_admin_dashboard'));
+        }
+
+    }
+
+    public function addMemberItem($menu)
+    {
+        if($this->container->get('security.context')->isGranted('ROLE_MEMBER')){
+            $annoncesItem = $menu->addChild('Publier', array('uri' => '#'))
+                ->setAttribute('dropdown', true);
+            $annoncesItem->addChild('Une information', array('route' => 'information_new'));
+        }
+
     }
 }
