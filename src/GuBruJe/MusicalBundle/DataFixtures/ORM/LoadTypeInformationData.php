@@ -8,11 +8,12 @@
 
 namespace GuBruJe\MusicalBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use GuBruJe\MusicalBundle\Entity\TypeInformation;
 
-class LoadTypeInformationData implements FixtureInterface
+class LoadTypeInformationData extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -23,9 +24,24 @@ class LoadTypeInformationData implements FixtureInterface
         foreach($informationTypes as $type){
             $informationType = new TypeInformation();
             $informationType->setNom($type);
+
+            $this->addReference($type, $informationType);
+
             $manager->persist($informationType);
         }
 
         $manager->flush();
     }
+
+    /**
+     * Get the order of this fixture
+     *
+     * @return integer
+     */
+    function getOrder()
+    {
+     return 2;
+    }
+
+
 }

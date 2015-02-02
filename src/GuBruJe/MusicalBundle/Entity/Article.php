@@ -2,8 +2,8 @@
 
 namespace GuBruJe\MusicalBundle\Entity;
 
+use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
-use GuBruJe\UserBundle\Entity\User;
 
 /**
  * Article
@@ -147,7 +147,6 @@ abstract class Article
     /**
      * Set user
      *
-     * @param \GuBruJe\UserBundle\Entity\User $auteur
      * @return Information
      */
     public function setAuteur(User $auteur)
@@ -160,7 +159,6 @@ abstract class Article
     /**
      * Get user
      *
-     * @return \GuBruJe\UserBundle\Entity\User
      */
     public function getAuteur()
     {
