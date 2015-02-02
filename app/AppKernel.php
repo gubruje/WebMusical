@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new GuBruJe\MusicalBundle\GuBruJeMusicalBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new GuBruJe\BlockBundle\GuBruJeBlockBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

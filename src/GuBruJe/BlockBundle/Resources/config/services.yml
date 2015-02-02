@@ -1,0 +1,7 @@
+parameters:
+#    gu_bru_je_block.example.class: GuBruJe\BlockBundle\Example
+
+services:
+#    gu_bru_je_block.example:
+#        class: %gu_bru_je_block.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

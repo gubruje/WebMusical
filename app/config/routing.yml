@@ -1,3 +1,7 @@
+gu_bru_je_block:
+    resource: "@GuBruJeBlockBundle/Resources/config/routing.yml"
+    prefix:   /
+
 gu_bru_je_musical:
     resource: "@GuBruJeMusicalBundle/Resources/config/routing.yml"
     prefix:   /

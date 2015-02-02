@@ -1,0 +1,16 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <h3 class="sonata-feed-title">{{ settings.title }}</h3>
+
+    <div class="sonata-feeds-container">
+        {% for information in informations %}
+            <div>
+                <strong><a href="{{ path('information_show', { id:information.id }) }}" rel="nofollow" title="{{ information.titre }}">{{ information.titre }}</a></strong>
+                {#<div>{{ feed.description|raw }}</div>#}
+            </div>
+        {% else %}
+            Aucune information
+        {% endfor %}
+    </div>
+{% endblock %}
