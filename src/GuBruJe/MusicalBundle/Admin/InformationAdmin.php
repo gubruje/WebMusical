@@ -19,7 +19,7 @@ class InformationAdmin extends Admin {
     {
         $formMapper
 
-            ->add('auteur', 'entity', array('class' => 'GuBruJe\UserBundle\Entity\User'))
+            ->add('auteur', 'entity', array('class' => 'Application\Sonata\UserBundle\Entity\User'))
             ->add('typeInformation')
             ->add('titre', 'text', array('label' => 'Titre'))
             ->add('contenu') //if no type is specified, SonataAdminBundle tries to guess it
