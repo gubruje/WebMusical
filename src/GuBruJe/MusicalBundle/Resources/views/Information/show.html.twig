@@ -3,12 +3,8 @@
 {% block musical_body -%}
     <h1 class="page-header">Information</h1>
 
-    <table >
+    <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
             <tr>
                 <th>Titre</th>
                 <td>{{ entity.titre }}</td>
@@ -17,14 +13,14 @@
                 <th>Contenu</th>
                 <td>{{ entity.contenu }}</td>
             </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ entity.auteur }}</td>
+            </tr>
         </tbody>
     </table>
 
-        <a class="btn-default btn" href="{{ path('information') }}">
+        <a class="btn-default btn" href="{{ path('homepage') }}">
             Retour
         </a>
-        <a class="btn btn-default" href="{{ path('information_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    {{ form(delete_form) }}
 {% endblock %}

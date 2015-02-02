@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class InformationRepository extends EntityRepository
 {
+    public function findValideInformations()
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->join('i.statut','s')
+        ->where('s.nom = :statut')
+        ->setParameter('statut', 'Valide');
+
+        return $qb->getQuery()->getResult();
+    }
+
 }

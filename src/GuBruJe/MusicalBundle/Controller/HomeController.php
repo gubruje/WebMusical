@@ -12,22 +12,12 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        $articles = array(
-            array('title' => 'titre 1',
-                  'contenu' => 'test paragraphe 1',
-                  
-                ),
-            array('title' => 'titre 2',
-                  'contenu' => 'test paragraphe 2',
-                  
-                ),
-            array('title' => 'titre 3',
-                  'contenu' => 'test paragraphe 3',
-                  
-                )
-        );
+        $em = $this->getDoctrine();
+        $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findValideInformations();
         return $this->render('GuBruJeMusicalBundle:Home:index.html.twig', array(
-            'articles' => $articles,
+            'informations' => $informations,
+            'annonces' => array(),
+            'oeuvres'  => array()
         ));
     }
 }

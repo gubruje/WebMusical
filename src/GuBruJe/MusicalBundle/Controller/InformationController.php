@@ -47,8 +47,9 @@ class InformationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('information_show', array('id' => $entity->getId())));
+            $flash = $this->get('braincrafted_bootstrap.flash');
+            $flash->success('Information Ajoutée avec succès.');
+            return $this->redirect($this->generateUrl('fos_user_profile_show'));
         }
 
         return $this->render('GuBruJeMusicalBundle:Information:new.html.twig', array(
@@ -174,9 +175,12 @@ class InformationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $statut = $this->getDoctrine()->getRepository('GuBruJeMusicalBundle:Statut')->findOneByNom('En Attente');
+            $entity->setStatut($statut);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('information_edit', array('id' => $id)));
+            $flash = $this->get('braincrafted_bootstrap.flash');
+            $flash->success('Information modifiée avec succès.');
+            return $this->redirect($this->generateUrl('fos_user_profile_show'));
         }
 
         return $this->render('GuBruJeMusicalBundle:Information:edit.html.twig', array(
@@ -204,9 +208,11 @@ class InformationController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            $flash = $this->get('braincrafted_bootstrap.flash');
+            $flash->success('Information supprimée avec succès.');
         }
 
-        return $this->redirect($this->generateUrl('information'));
+        return $this->redirect($this->generateUrl('fos_user_profile_show'));
     }
 
     /**
@@ -221,7 +227,7 @@ class InformationController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('information_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer l\'information', 'attr' => array( 'class' => 'btn-danger')))
             ->getForm()
         ;
     }

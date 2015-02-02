@@ -2,15 +2,30 @@
 
 {% block musical_body -%}
     <h1 class="page-header">Information <small>création</small></h1>
+    <div class="row row-fluid">
+        <div class="span8 col-lg-8">
     {{ form_start(form) }}
-    {{ form_row(form) }}
+    {{ form_row(form.typeInformation) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.contenu) }}
     <div class="control-group">
         <div class="controls">
             <button type="submit" id="_submit" name="_submit" class="btn btn-primary">Créer</button>
-            <a class="btn btn-default" href="{{ path('information') }}">
-                retour
+            <a class="btn btn-default" href="{{ path('homepage') }}">
+                Annuler
             </a>
         </div>
     </div>
     {{ form_end(form) }}
+        </div>
+        <div class="span4 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Information</div>
+                <div class="panel-body">
+                    Toute publication est soumise aux contrôle et à la validation d'un administrateur.
+                </div>
+            </div>
+
+        </div>
+    </div>
 {% endblock %}
