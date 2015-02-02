@@ -43,7 +43,7 @@ abstract class Article
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="GuBruJe\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      *
      */
     private $auteur;

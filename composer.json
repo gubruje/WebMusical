@@ -33,14 +33,14 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "braincrafted/bootstrap-bundle": "~2.0",
-        "knplabs/knp-menu-bundle": "~2",
+        "knplabs/knp-menu-bundle": "1.1.*",
         "twbs/bootstrap": "3.0.*",
         "jquery/jquery":  "1.11.*",
         "fortawesome/font-awesome": "~4.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "sonata-project/admin-bundle": "~2.3",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
+        "sonata-project/user-bundle": "~2.2",
         "sonata-project/doctrine-orm-admin-bundle": "~2.3",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "sonata-project/admin-bundle": "~2.3"
     },
     "scripts": {
         "post-install-cmd": [
