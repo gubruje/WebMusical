@@ -9,10 +9,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class InformationType extends ArticleType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
+        $builder
+            ->add('typeInformation');
         parent::buildForm($builder, $options);
         //TODO ajouter le typeInformation dans le formulaire
-         $builder
-            ->add('typeInformation');
+
     }
 
     /**

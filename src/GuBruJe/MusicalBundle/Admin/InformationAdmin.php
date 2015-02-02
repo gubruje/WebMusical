@@ -19,10 +19,15 @@ class InformationAdmin extends Admin {
     {
         $formMapper
 
-            ->add('auteur', 'entity', array('class' => 'Application\Sonata\UserBundle\Entity\User'))
+            ->add('statut' , 'entity', array(
+                'class' => 'GuBruJeMusicalBundle:Statut',
+                'property' => 'nom',
+                'expanded' => true,
+            ))
             ->add('typeInformation')
             ->add('titre', 'text', array('label' => 'Titre'))
             ->add('contenu') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('auteur', 'entity', array('class' => 'Application\Sonata\UserBundle\Entity\User'))
         ;
     }
 
@@ -30,7 +35,7 @@ class InformationAdmin extends Admin {
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('titre')
+            ->add('statut')
             ->add('auteur')
         ;
     }
@@ -42,6 +47,8 @@ class InformationAdmin extends Admin {
             ->addIdentifier('titre')
             //->add('slug')
             ->add('auteur')
+            ->add('statut')
+
         ;
     }
 } 

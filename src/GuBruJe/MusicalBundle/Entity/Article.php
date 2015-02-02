@@ -27,12 +27,7 @@ abstract class Article
      */
     private $contenu;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="publication", type="boolean")
-     */
-    private $publication;
+
 
     /**
      * @var \DateTime
@@ -47,6 +42,13 @@ abstract class Article
      *
      */
     private $auteur;
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="GuBruJe\MusicalBundle\Entity\Statut")
+     *
+     */
+    private $statut;
 
     public function __construct()
     {
@@ -99,29 +101,6 @@ abstract class Article
     }
 
     /**
-     * Set publication
-     *
-     * @param boolean $publication
-     * @return Article
-     */
-    public function setPublication($publication)
-    {
-        $this->publication = $publication;
-
-        return $this;
-    }
-
-    /**
-     * Get publication
-     *
-     * @return boolean 
-     */
-    public function getPublication()
-    {
-        return $this->publication;
-    }
-
-    /**
      * Set date
      *
      * @param \DateTime $date
@@ -165,4 +144,27 @@ abstract class Article
         return $this->auteur;
     }
 
+
+    /**
+     * Set statut
+     *
+     * @param \GuBruJe\MusicalBundle\Entity\Statut $statut
+     * @return Article
+     */
+    public function setStatut(Statut $statut = null)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return \GuBruJe\MusicalBundle\Entity\Statut 
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
 }

@@ -27,21 +27,28 @@ class LoadInformationData extends AbstractFixture implements OrderedFixtureInter
                 'contenu' => 'Un excellent artiste à ne pas manquer.',
                 'type' => 'Concert',
                 'auteur' => 'member',
-                'publication' => true,
+                'statut' => 'Valide',
             ),
             array(
                 'titre' => 'Mon premier article',
                 'contenu' => 'Ceci est mon tout premier article soyez sympa ...',
                 'type' => 'Article',
                 'auteur' => 'member',
-                'publication' => true,
+                'statut' => 'En attente',
             ),
             array(
                 'titre' => 'Autre Késako',
                 'contenu' => 'Voilà quelquechose que l\on peut mettre dans la catégorie Autres',
                 'type' => 'Autres',
                 'auteur' => 'admin',
-                'publication' => true,
+                'statut' => 'Valide',
+            ),
+            array(
+                'titre' => 'Article',
+                'contenu' => 'Mon article en tant qu\'administrateur c\est génial',
+                'type' => 'Article',
+                'auteur' => 'admin',
+                'statut' => 'En attente',
             ),
 
 
@@ -52,7 +59,7 @@ class LoadInformationData extends AbstractFixture implements OrderedFixtureInter
             $information->setContenu($detail['contenu']);
             $information->setTypeInformation($this->getReference($detail['type']));
             $information->setAuteur($this->getReference($detail['auteur']));
-            $information->setPublication($detail['publication']);
+            $information->setStatut($this->getReference($detail['statut']));
 
             $manager->persist($information);
         }
@@ -67,7 +74,7 @@ class LoadInformationData extends AbstractFixture implements OrderedFixtureInter
      */
     function getOrder()
     {
-        return 3;
+        return 4;
     }
 
 

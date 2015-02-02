@@ -35,9 +35,11 @@ class InformationController extends Controller
      */
     public function createAction(Request $request)
     {
+        $statut = $this->getDoctrine()->getRepository('GuBruJeMusicalBundle:Statut')->findOneByNom('En Attente');
         $user = $this->getUser();
         $entity = new Information();
-        $entity->setUser($user);
+        $entity->setAuteur($user);
+        $entity->setStatut($statut);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
