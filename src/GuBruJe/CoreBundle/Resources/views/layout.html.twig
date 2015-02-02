@@ -39,17 +39,16 @@
                 {# On affiche un coin espace membre :
             * Si le membre est identifié : lien de déconnexion
             * Sinon : formulaire de connexion #}
-                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                    {{ knp_menu_render('GuBruJeCoreBundle:Builder:userMenu') }}
-                {% elseif app.request.attributes.get('_route') != 'fos_user_security_login' %}
-                    <a href="{{ path('fos_user_security_login') }}" class="btn btn-default navbar-btn navbar-right">Sign in</a>
-                {% endif %}
 
+                <div class="navbar-text navbar-right">
+                {{ sonata_block_render({'type': 'sonata.user.block.account'}) }}
+                </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>
     </nav>
 {% endblock %}
+
 {% block body %}{% endblock %}
 
 <footer class="footer">
