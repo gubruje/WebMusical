@@ -12,15 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class InformationRepository extends EntityRepository
 {
-    public function findValide($nbr = 3)
+    public function findValide($nbr = null)
     {
         $qb = $this->createQueryBuilder('i')
                 ->join('i.statut', 's')
                 ->where('s.nom = :statut')
                 ->setParameter('statut', 'Valide')
                 ->orderBy('i.date', 'desc');
-
-        $qb->setMaxResults($nbr);
+        if($nbr !== null){
+            $qb->setMaxResults($nbr);
+        }
 
         return $qb->getQuery()->getResult();
     }

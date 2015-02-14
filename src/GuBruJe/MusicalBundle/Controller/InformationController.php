@@ -24,7 +24,6 @@ class InformationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findValide();
-
         return $this->render('GuBruJeMusicalBundle:Information:index.html.twig', array(
             'informations' => $informations,
         ));
