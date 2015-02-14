@@ -27,7 +27,7 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $annonces = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findAll();
+        $annonces = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findValideAnnonces();
 
         return $this->render('GuBruJeMusicalBundle:Annonce:index.html.twig', array(
             'annonces' => $annonces,

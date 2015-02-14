@@ -7,13 +7,17 @@
         <div class="blog-post">
             <h2> <a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.titre }}</a></h2>
             <em>
-                Le <time datetime="{{ annonce.date|date('c') }}" itemprop="datePublished">{{ annonce.date|date('d/m/Y à  H\\hi') }}</time>,
-                <span itemprop="author">{{ annonce.auteur }}</span> a écrit :
+                Le <time datetime="{{ annonce.date|date('c') }}" itemprop="datePublished">{{ annonce.date|date('d/m/Y à  H\\hi') }}</time> par
+                <span itemprop="author">{{ annonce.auteur }}</span>
             </em>
+            <p>Rubrique : {{ annonce.rubrique }}</p>
             <div class="well">
+                <p>{{ annonce.rubrique }}</p>
             <p>{{ annonce.contenu }}</p>
             </div>
 
         </div>
+        {% else %}
+        <p>Aucune annonce</p>
     {% endfor %}
 {% endblock %}
