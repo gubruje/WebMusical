@@ -1,7 +1,10 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
 
-{% block musical_body -%}
+{% block titre %}
     <h1 class="page-header">Informations</h1>
+{% endblock %}
+{% block musical_body -%}
+
 
     {% for information in informations %}
         <div class="blog-post">

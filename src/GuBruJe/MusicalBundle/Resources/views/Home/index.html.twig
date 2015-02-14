@@ -1,6 +1,63 @@
 {% extends 'GuBruJeCoreBundle::layout.html.twig' %}
 
 {% block body %}
+    <!-- Carousel
+================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Bienvenue sur Web Musical</h1>
+                        <p>
+                            Web Musical est un site d'échanges et d'informations autour de la musique pour les musiciens de tout
+                            bord,
+                            amateurs ou professionnels.<br><br>
+                            Ici vous pourrez déposer des annonces pour chercher un musicien, un professeur, vendre ou acheter un
+                            instrument de musique, mais aussi repérer les dates de concerts, lire des informations sur votre groupe préféré, ou
+                            tout
+                            simplement tchater avec vos amis.<br><br>
+                            WebMusicalement votre.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="fa fa-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div><!-- /.carousel -->
+<div class="container">
         <div class="row">
             <div class="col-md-4">
                 {{ render(controller("GuBruJeMusicalBundle:Annonce:last", {'nombre': 3})) }}
@@ -10,21 +67,5 @@
                 {{ render(controller("GuBruJeMusicalBundle:Information:last", {'nombre': 3})) }}
             </div>
         </div>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Bienvenue sur Web Musical</h1>
-
-            <p>
-                Web Musical est un site d'échanges et d'informations autour de la musique pour les musiciens de tout
-                bord,
-                amateurs ou professionnels.<br><br>
-                Ici vous pourrez déposer des annonces pour chercher un musicien, un professeur, vendre ou acheter un
-                instrument de musique, mais aussi repérer les dates de concerts, lire des informations sur votre groupe préféré, ou
-                tout
-                simplement tchater avec vos amis.<br><br>
-                WebMusicalement votre.
-            </p>
-        </div>
-    </div>
-
+</div>
 {% endblock %}

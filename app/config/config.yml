@@ -43,6 +43,7 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -78,7 +79,8 @@ braincrafted_bootstrap:
     icon_prefix: fa
     auto_configure:
         knp_menu: false
-
+    customize:
+        variables_file: %kernel.root_dir%/Resources/less/variables.less
 fos_user:
     db_driver:      orm # can be orm or odm
     firewall_name:  main
