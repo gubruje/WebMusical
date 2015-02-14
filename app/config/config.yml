@@ -109,6 +109,7 @@ sonata_block:
         sonata.block.service.text:
         sonata.block.service.rss:
         gubruje.block.information:
+        gubruje.block.annonce:
         # Your other blocks
 
 sonata_admin:
@@ -124,6 +125,7 @@ sonata_user:
         dashboard:
             blocks:
                 - { position: left, type: gubruje.block.information }
+                - { position: right, type: gubruje.block.annonce }
         # Customize user portal menu by setting links
         menu:
             - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
@@ -153,4 +155,5 @@ stfalcon_tinymce:
             bbcode:
                  plugins: ["bbcode, code, link, preview"]
                  menubar: false
+                 height:  300
                  toolbar1: "bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
