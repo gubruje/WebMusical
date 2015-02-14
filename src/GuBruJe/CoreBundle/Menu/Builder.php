@@ -45,6 +45,7 @@ class Builder extends ContainerAware
     public function addDefaultItem($menu)
     {
         $menu->addChild('Annonces', array('route' => 'annonce'));
+        $menu->addChild('Informations', array('route' => 'information'));
     }
 
     public function addAdminItem($menu)
