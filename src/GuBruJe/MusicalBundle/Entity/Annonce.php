@@ -25,6 +25,14 @@ class Annonce extends Article implements RoutedItemInterface
 
 
     /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="GuBruJe\MusicalBundle\Entity\Rubrique")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $rubrique;
+
+    /**
      * @ORM\OneToMany(targetEntity="GuBruJe\MusicalBundle\Entity\Commentaire", mappedBy="annonce")
      */
     private $commentaires;
@@ -43,6 +51,7 @@ class Annonce extends Article implements RoutedItemInterface
      */
     public function __construct()
     {
+        parent::__construct();
         $this->commentaires = new ArrayCollection();
     }
 
@@ -147,4 +156,27 @@ class Annonce extends Article implements RoutedItemInterface
     }
 
 
+
+    /**
+     * Set rubrique
+     *
+     * @param \GuBruJe\MusicalBundle\Entity\Rubrique $rubrique
+     * @return Annonce
+     */
+    public function setRubrique(\GuBruJe\MusicalBundle\Entity\Rubrique $rubrique)
+    {
+        $this->rubrique = $rubrique;
+
+        return $this;
+    }
+
+    /**
+     * Get rubrique
+     *
+     * @return \GuBruJe\MusicalBundle\Entity\Rubrique 
+     */
+    public function getRubrique()
+    {
+        return $this->rubrique;
+    }
 }

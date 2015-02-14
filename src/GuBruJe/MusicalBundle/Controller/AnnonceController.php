@@ -27,10 +27,10 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findAll();
+        $annonces = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findAll();
 
         return $this->render('GuBruJeMusicalBundle:Annonce:index.html.twig', array(
-            'entities' => $entities,
+            'annonces' => $annonces,
         ));
     }
 

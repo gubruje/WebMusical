@@ -9,6 +9,14 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class AnnonceType extends ArticleType
 {
 
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('rubrique');
+        parent::buildForm($builder, $options);
+
+    }
+
     /**
      * @param OptionsResolverInterface $resolver
      */
