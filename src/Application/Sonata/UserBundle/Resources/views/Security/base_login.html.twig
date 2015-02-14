@@ -3,6 +3,8 @@
 {% block body %}
 
 {% block fos_user_content %}
+    <div class="container">
+        <br>
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-info">
@@ -70,6 +72,7 @@
         <div class="col-md-6">
             {% render controller("FOSUserBundle:Registration:register") %}
         </div>
+    </div>
     </div>
 {% endblock fos_user_content %}
 

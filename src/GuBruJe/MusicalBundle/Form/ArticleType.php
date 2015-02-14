@@ -18,7 +18,7 @@ class ArticleType extends AbstractType
             ->add('titre', 'text')
             ->add('contenu', 'textarea',array('attr' => array(
                 'class' => 'tinymce',
-                'data-theme' => 'bbcode',
+                'data-theme' => 'simple',
             )))
         ;
     }

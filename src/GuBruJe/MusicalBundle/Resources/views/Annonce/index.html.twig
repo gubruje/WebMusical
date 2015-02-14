@@ -6,7 +6,7 @@
 {% block musical_body -%}
     {% for annonce in annonces %}
         <div class="blog-post">
-            <h2><a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.titre }}</a></h2>
+            <h2><a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.titre }}</a> <small>{{ annonce.rubrique }}</small></h2>
             <em>
                 Le
                 <time datetime="{{ annonce.date|date('c') }}"
@@ -14,11 +14,8 @@
                 par
                 <span itemprop="author">{{ annonce.auteur }}</span>
             </em>
-
-            <p>Rubrique : {{ annonce.rubrique }}</p>
-
             <div class="well">
-                <p>{{ annonce.contenu }}</p>
+                <p>{{ annonce.contenu|markdown }}</p>
             </div>
 
         </div>

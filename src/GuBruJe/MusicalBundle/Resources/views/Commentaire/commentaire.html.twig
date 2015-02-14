@@ -13,7 +13,7 @@
         <span itemprop="author">{{ userHelper.link(commentaire.user, commentaire.auteur) }}</span> a écrit :
     </em>
     <br />
-    {{ commentaire.contenu }}
+    {{ commentaire.contenu|markdown }}
 </div>
 
 {% macro link(user, username) %}

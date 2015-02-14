@@ -1,7 +1,9 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
 
 {% block titre %}
-    <h1 class="page-header">{{ annonce.titre }}</h1>
+    <h1 class="page-header">{{ annonce.titre }}
+        <small>{{ annonce.rubrique }}</small>
+    </h1>
 {% endblock %}
 
 {% block musical_body -%}
@@ -12,24 +14,26 @@
         par
         <span itemprop="author">{{ annonce.auteur }}</span>
     </em>
-    <p>Rubrique : {{ annonce.rubrique }}</p>
     <div class="well">
-        <p>{{ annonce.contenu }}</p>
+        <p>{{ annonce.contenu|markdown }}</p>
     </div>
+    <div class="well">
+        <h3>Commentaires</h3>
+        {% for commentaire in commentaires %}
+            {% include "GuBruJeMusicalBundle:Commentaire:commentaire.html.twig" %}
+            <hr/>
+        {% else %}
+            <p>Pas encore de commentaire.</p>
+        {% endfor %}
+    </div>
+    <div class="well">
+        <h3>Poster un nouveau commentaire</h3>
 
-    <h3>Commentaires</h3>
-    {% for commentaire in commentaires %}
-        {% include "GuBruJeMusicalBundle:Commentaire:commentaire.html.twig" %}
-        <hr/>
-    {% else %}
-        <p>Pas encore de commentaire.</p>
-    {% endfor %}
-    <h3>Poster un nouveau commentaire</h3>
-    <form method="post" action="{{ path('annonce_ajouter_commentaire', {'id': annonce.id}) }}">
-        {{ form_widget(form) }}
-        <input type="submit" value="Ajouter" class="btn btn-primary"/>
-    </form>
-
+        <form method="post" action="{{ path('annonce_ajouter_commentaire', {'id': annonce.id}) }}">
+            {{ form_widget(form) }}
+            <input type="submit" value="Ajouter" class="btn btn-primary"/>
+        </form>
+    </div>
 {% endblock %}
 
 
