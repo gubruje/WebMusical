@@ -13,10 +13,11 @@ class HomeController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine();
-        $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findValideInformations();
+        $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findLastValideInformations(3);
+        $annonces = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findLastValideAnnonces(3);
         return $this->render('GuBruJeMusicalBundle:Home:index.html.twig', array(
             'informations' => $informations,
-            'annonces' => array(),
+            'annonces' => $annonces,
             'oeuvres'  => array()
         ));
     }

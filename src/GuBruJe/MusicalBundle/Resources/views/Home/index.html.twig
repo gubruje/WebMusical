@@ -45,7 +45,7 @@
                 <h2>Annonces</h2>
                 <ul class="list-unstyled">
                     {% for annonce in annonces %}
-                        <li><a href="{{ path('information_show', { id: annonce.id}) }}">{{ annonce.titre }}</a></li>
+                        <li><a href="{{ path('annonce_show', { id: annonce.id}) }}">{{ annonce.titre }}</a></li>
                     {% else %}
                         <li>Aucune annonce</li>
                     {% endfor %}

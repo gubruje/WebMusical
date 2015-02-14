@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnnonceRepository extends EntityRepository
 {
+
+    public function findLastValideAnnonces($nbr = 3)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->join('a.statut', 's')
+            ->where('s.nom = :statut')
+            ->setParameter('statut', 'Valide')
+            ->orderBy('a.date', 'desc');
+
+        $qb->setMaxResults($nbr);
+
+        return $qb->getQuery()->getResult();
+    }
 }

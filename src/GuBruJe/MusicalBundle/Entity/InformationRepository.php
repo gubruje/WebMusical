@@ -12,12 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class InformationRepository extends EntityRepository
 {
-    public function findValideInformations()
+    public function findLastValideInformations($nbr = 3)
     {
         $qb = $this->createQueryBuilder('i')
-            ->join('i.statut','s')
-        ->where('s.nom = :statut')
-        ->setParameter('statut', 'Valide');
+                ->join('i.statut', 's')
+                ->where('s.nom = :statut')
+                ->setParameter('statut', 'Valide')
+                ->orderBy('i.date', 'desc');
+
+        $qb->setMaxResults($nbr);
 
         return $qb->getQuery()->getResult();
     }
