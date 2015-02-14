@@ -1,28 +1,21 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
 
 {% block musical_body -%}
-    <h1 class="page-header">Information <small>list</small></h1>
+    <h1 class="page-header">Informations</h1>
 
-    <table class="table table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('information_show', { 'id': entity.id }) }}">{{ entity.titre }}</a></td>
-                <td>
-                        <a class="btn btn-default" href="{{ path('information_show', { 'id': entity.id }) }}">Voir</a>
-                        <a class="btn btn-default" href="{{ path('information_edit', { 'id': entity.id }) }}">Modifier</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-            <a class="btn btn-primary" href="{{ path('information_new') }}">
-                Ajouter une information
-                </a>
-    {% endblock %}
+    {% for information in informations %}
+        <div class="blog-post">
+            <h2> <a href="{{ path('information_show', { 'id': information.id }) }}">{{ information.titre }}</a> <small>{{ information.typeInformation }}</small></h2>
+            <em>
+                Le <time datetime="{{ information.date|date('c') }}" itemprop="datePublished">{{ information.date|date('d/m/Y à  H\\hi') }}</time> par
+                <span itemprop="author">{{ information.auteur }}</span>
+            </em>
+            <div class="well">
+                <p>{{ information.contenu }}</p>
+            </div>
+
+        </div>
+    {% else %}
+        <p>Aucune information</p>
+    {% endfor %}
+{% endblock %}

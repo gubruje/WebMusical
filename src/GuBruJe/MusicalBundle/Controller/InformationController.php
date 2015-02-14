@@ -23,10 +23,10 @@ class InformationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GuBruJeMusicalBundle:Information')->findAll();
+        $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findValideInformations();
 
         return $this->render('GuBruJeMusicalBundle:Information:index.html.twig', array(
-            'entities' => $entities,
+            'informations' => $informations,
         ));
     }
     /**
