@@ -1,69 +1,31 @@
 {% extends 'GuBruJeCoreBundle::layout.html.twig' %}
 
 {% block body %}
+        <div class="row">
+            <div class="col-md-4">
+                {{ render(controller("GuBruJeMusicalBundle:Annonce:last", {'nombre': 3})) }}
+
+            </div>
+            <div class="col-md-4 col-md-offset-4">
+                {{ render(controller("GuBruJeMusicalBundle:Information:last", {'nombre': 3})) }}
+            </div>
+        </div>
     <div class="jumbotron">
         <div class="container">
-            <!--<h1>Bienvenue sur le site</h1>-->
             <h1>Bienvenue sur Web Musical</h1>
 
-            <!--
             <p>
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-                blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...blabla ...
-            </p>
-            <-->
-            <p>
-                Web Musical est un site d'échanges et d'informations autour de la musique pour les musiciens de tout bord,
+                Web Musical est un site d'échanges et d'informations autour de la musique pour les musiciens de tout
+                bord,
                 amateurs ou professionnels.
-                Ici vous pourrez créer des annonces pour chercher un musicien, un professeur, vendre ou acheter un instrument
-                de musique, mais aussi repérer les dates de concerts, lire des informations sur votre groupe préféré, ou tout
+                Ici vous pourrez créer des annonces pour chercher un musicien, un professeur, vendre ou acheter un
+                instrument
+                de musique, mais aussi repérer les dates de concerts, lire des informations sur votre groupe préféré, ou
+                tout
                 simplement tchater avec vos amis.
-                WebMusicalement votre 
+                WebMusicalement votre
             </p>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Informations</h2>
-                <ul class="list-unstyled">
-                {% for information in informations %}
-                    <li><a href="{{ path('information_show', { id: information.id}) }}">{{ information.titre }}</a></li>
-                    {% else %}
-                    <li>Aucune information</li>
-                {% endfor %}
-                </ul>
 
-            </div>
-            <div class="col-md-4">
-                <h2>Annonces <a href="{{ path('annonce_rss') }}" class="btn"><i class="fa fa-rss"></i> RSS</a></h2>
-                <ul class="list-unstyled">
-                    {% for annonce in annonces %}
-                        <li><a href="{{ path('annonce_show', { id: annonce.id}) }}">{{ annonce.titre }}</a></li>
-                    {% else %}
-                        <li>Aucune annonce</li>
-                    {% endfor %}
-                </ul>
-
-            </div>
-            <div class="col-md-4">
-                <h2>Oeuvres</h2>
-                <ul class="list-unstyled">
-                    {% for oeuvre in oeuvres %}
-                        <li><a href="{{ path('information_show', { id: oeuvre.id}) }}">{{ oeuvre.titre }}</a></li>
-                    {% else %}
-                        <li>Aucune oeuvre</li>
-                    {% endfor %}
-                </ul>
-
-            </div>
-        </div>
-        <hr>
-    </div> <!-- /container -->
 {% endblock %}

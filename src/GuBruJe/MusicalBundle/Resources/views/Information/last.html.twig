@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+    <h3 class="panel-title">Dernières informations</h3>
+</div>
+<div class="panel-body">
+    <ul class="list-unstyled">
+        {% for information in informations %}
+            <li><a href="{{ path('information_show', { id: information.id}) }}">{{ information.titre }}</a></li>
+        {% else %}
+            <li>Aucune information</li>
+        {% endfor %}
+    </ul>
+    </div>
+</div>

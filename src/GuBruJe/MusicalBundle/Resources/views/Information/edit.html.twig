@@ -1,10 +1,12 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
 
-{% block musical_body -%}
+{% block titre %}
     <h1 class="page-header">Information <small>modification</small></h1>
+{% endblock %}
 
-    <div class="row row-fluid">
-        <div class="span8 col-lg-8">
+{% block musical_body -%}
+
+
             {{ form_start(edit_form) }}
             {{ form_row(edit_form.typeInformation) }}
             {{ form_row(edit_form.titre) }}
@@ -17,23 +19,19 @@
                     </a>
                 </div>
             </div>
-
             {{ form_end(edit_form) }}
-        </div>
-        <div class="span4 col-lg-4">
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Information</div>
-                <div class="panel-body">
-                    Toute modification de publication est resoumise aux contrôle et à la validation d'un administrateur.
-                </div>
-            </div>
-            {{ form(delete_form) }}
-        </div>
-    </div>
 
 {% endblock %}
 
+{% block musical_info %}
+    <div class="panel panel-default">
+        <div class="panel-heading">Information</div>
+        <div class="panel-body">
+            Toute modification de publication est resoumise aux contrôle et à la validation d'un administrateur.
+        </div>
+    </div>
+    {{ form(delete_form) }}
+{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}

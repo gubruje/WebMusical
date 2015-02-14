@@ -27,7 +27,7 @@ class AnnonceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $annonces = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findValideAnnonces();
+        $annonces = $em->getRepository('GuBruJeMusicalBundle:Annonce')->findValide();
 
         return $this->render('GuBruJeMusicalBundle:Annonce:index.html.twig', array(
             'annonces' => $annonces,
@@ -324,5 +324,13 @@ class AnnonceController extends Controller
         $feed->addFromArray($annonces);
 
         return new Response($feed->render('rss')); // or 'atom'
+    }
+
+    public function lastAction($nombre)
+    {
+        $annonces = $this->getDoctrine()->getManager()->getRepository('GuBruJeMusicalBundle:Annonce')->findValide(3);
+        return $this->render('GuBruJeMusicalBundle:Annonce:last.html.twig', array(
+            'annonces' => $annonces,
+        ));
     }
 }

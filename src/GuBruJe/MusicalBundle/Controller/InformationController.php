@@ -23,7 +23,7 @@ class InformationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findValideInformations();
+        $informations = $em->getRepository('GuBruJeMusicalBundle:Information')->findValide();
 
         return $this->render('GuBruJeMusicalBundle:Information:index.html.twig', array(
             'informations' => $informations,
@@ -96,20 +96,12 @@ class InformationController extends Controller
      * Finds and displays a Information entity.
      *
      */
-    public function showAction($id)
+    public function showAction(Information $information)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('GuBruJeMusicalBundle:Information')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Information entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->createDeleteForm($information->getId());
 
         return $this->render('GuBruJeMusicalBundle:Information:show.html.twig', array(
-            'entity'      => $entity,
+            'information'      => $information,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -230,5 +222,13 @@ class InformationController extends Controller
             ->add('submit', 'submit', array('label' => 'Supprimer l\'information', 'attr' => array( 'class' => 'btn-danger')))
             ->getForm()
         ;
+    }
+
+    public function lastAction($nombre)
+    {
+        $informations = $this->getDoctrine()->getManager()->getRepository('GuBruJeMusicalBundle:Information')->findValide(3);
+        return $this->render('GuBruJeMusicalBundle:Information:last.html.twig', array(
+            'informations' => $informations,
+        ));
     }
 }

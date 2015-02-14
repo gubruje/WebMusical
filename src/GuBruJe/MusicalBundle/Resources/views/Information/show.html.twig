@@ -1,26 +1,19 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
 
+{% block titre %}
+    <h1 class="page-header">{{ information.titre }} <small>{{ information.typeInformation }}</small></h1>
+{% endblock %}
+
 {% block musical_body -%}
-    <h1 class="page-header">Information</h1>
+    <em>
+        Le
+        <time datetime="{{ information.date|date('c') }}"
+              itemprop="datePublished">{{ information.date|date('d/m/Y à  H\\hi') }}</time>
+        par
+        <span itemprop="author">{{ information.auteur }}</span>
+    </em>
+    <div class="well">
+        <p>{{ information.contenu }}</p>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Titre</th>
-                <td>{{ entity.titre }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ entity.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Auteur</th>
-                <td>{{ entity.auteur }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <a class="btn-default btn" href="{{ path('homepage') }}">
-            Retour
-        </a>
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
-
-{% block musical_body -%}
+{% block titre %}
     <h1 class="page-header">Annonce <small>création</small></h1>
-    <div class="row row-fluid">
-        <div class="span8 col-lg-8">
+{% endblock %}
+{% block musical_body -%}
             {{ form_start(form) }}
             {{ form_row(form.titre) }}
             {{ form_row(form.rubrique) }}
@@ -17,19 +16,17 @@
                 </div>
             </div>
             {{ form_end(form) }}
-        </div>
-        <div class="span4 col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">Information</div>
-                <div class="panel-body">
-                    Toute publication est soumise aux contrôle et à la validation d'un administrateur.
-                </div>
-            </div>
 
+
+{% endblock %}
+{% block musical_info %}
+    <div class="panel panel-default">
+        <div class="panel-heading">Information</div>
+        <div class="panel-body">
+            Toute publication est soumise aux contrôle et à la validation d'un administrateur.
         </div>
     </div>
 {% endblock %}
-
 
 {% block javascripts %}
     {{ parent() }}

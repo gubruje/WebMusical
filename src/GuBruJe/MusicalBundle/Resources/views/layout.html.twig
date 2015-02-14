@@ -1,5 +1,18 @@
 {% extends 'GuBruJeCoreBundle::layout.html.twig' %}
 
 {% block body %}
-{% block musical_body %}{%  endblock %}
-{%  endblock %}
+    {% block titre %}
+    {% endblock %}
+    <div class="row">
+        <div class="col-md-9">
+            {% block musical_body %}{% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block musical_info %}
+                {{ render(controller("GuBruJeMusicalBundle:Annonce:last", {'nombre': 3})) }}
+                {{ render(controller("GuBruJeMusicalBundle:Information:last", {'nombre': 3})) }}
+            {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

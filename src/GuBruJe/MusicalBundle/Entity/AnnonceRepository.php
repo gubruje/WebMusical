@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
 class AnnonceRepository extends EntityRepository
 {
 
-    public function findValideAnnonces($nbr = null)
+    public function findValide($nbr = null)
     {
         $qb = $this->createQueryBuilder('a')
             ->join('a.statut', 's')

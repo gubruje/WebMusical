@@ -1,23 +1,28 @@
 {% extends 'GuBruJeMusicalBundle::layout.html.twig' %}
 
-{% block musical_body -%}
+{% block titre %}
     <h1 class="page-header">Annonces</h1>
-
+{% endblock %}
+{% block musical_body -%}
     {% for annonce in annonces %}
         <div class="blog-post">
-            <h2> <a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.titre }}</a></h2>
+            <h2><a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.titre }}</a></h2>
             <em>
-                Le <time datetime="{{ annonce.date|date('c') }}" itemprop="datePublished">{{ annonce.date|date('d/m/Y à  H\\hi') }}</time> par
+                Le
+                <time datetime="{{ annonce.date|date('c') }}"
+                      itemprop="datePublished">{{ annonce.date|date('d/m/Y à  H\\hi') }}</time>
+                par
                 <span itemprop="author">{{ annonce.auteur }}</span>
             </em>
+
             <p>Rubrique : {{ annonce.rubrique }}</p>
+
             <div class="well">
-                <p>{{ annonce.rubrique }}</p>
-            <p>{{ annonce.contenu }}</p>
+                <p>{{ annonce.contenu }}</p>
             </div>
 
         </div>
-        {% else %}
+    {% else %}
         <p>Aucune annonce</p>
     {% endfor %}
 {% endblock %}

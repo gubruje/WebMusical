@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Dernières annonces </h3>
+    </div>
+    <div class="panel-body">
+        <a href="{{ path('annonce_rss') }}" class="btn pull-right"><i class="fa fa-rss"></i>
+            RSS</a>
+        <ul class="list-unstyled">
+            {% for annonce in annonces %}
+                <li><a href="{{ path('annonce_show', { id: annonce.id}) }}">{{ annonce.titre }}</a></li>
+            {% else %}
+                <li>Aucune annonce</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
