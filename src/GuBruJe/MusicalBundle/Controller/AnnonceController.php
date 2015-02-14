@@ -318,7 +318,7 @@ class AnnonceController extends Controller
      */
     public function feedAction()
     {
-        $annonces = $this->getDoctrine()->getRepository('GuBruJeMusicalBundle:Annonce')->findLastValideAnnonces();
+        $annonces = $this->getDoctrine()->getRepository('GuBruJeMusicalBundle:Annonce')->findValide();
 
         $feed = $this->get('eko_feed.feed.manager')->get('annonce');
         $feed->addFromArray($annonces);
