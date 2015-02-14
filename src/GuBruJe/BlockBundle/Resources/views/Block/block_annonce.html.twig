@@ -1,0 +1,23 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <div class="panel panel-default">
+        <div class="panel-heading"> {{ settings.title }}</div>
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                {% for annonce in annonces %}
+                    <li>
+
+                        <a href="{{ path('annonce_edit', { id:annonce.id}) }}" class="btn btn-default btn-xs" >Éditer</a>
+                        <a href="{{ path('annonce_show', { id:annonce.id }) }}" rel="nofollow"
+                           title="{{ annonce.titre }}">{{ annonce.titre }}</a>
+                        <span class="label label-default pull-right">{{ annonce.statut.nom }}</span>
+                    </li>
+                    {#<div>{{ feed.description|raw }}</div>#}
+                {% else %}
+                    Aucune annonce
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,9 +1,12 @@
-parameters:
-    gubruje.block.information.class: GuBruJe\BlockBundle\Block\InfomationBlockService
-
 services:
     gubruje.block.information:
-        class: %gubruje.block.information.class%
+        class: GuBruJe\BlockBundle\Block\InfomationBlockService
         arguments: ['gubruje.block.information' , @templating, @doctrine.orm.entity_manager, @security.context ]
+        tags:
+            - { name: sonata.block }
+
+    gubruje.block.annonce:
+        class: GuBruJe\BlockBundle\Block\AnnonceBlockService
+        arguments: ['gubruje.block.annonce' , @templating, @doctrine.orm.entity_manager, @security.context ]
         tags:
             - { name: sonata.block }
