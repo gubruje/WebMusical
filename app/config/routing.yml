@@ -10,6 +10,10 @@ GuBruJeMusicalBundle_information:
         resource: "@GuBruJeMusicalBundle/Resources/config/routing/information.yml"
         prefix:   /information
 
+GuBruJeMusicalBundle_annonce:
+        resource: "@GuBruJeMusicalBundle/Resources/config/routing/annonce.yml"
+        prefix:   /annonce
+
 #fos_user:
 #    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

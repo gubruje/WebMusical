@@ -54,6 +54,7 @@ class Builder extends ContainerAware
         if($this->container->get('security.context')->isGranted('ROLE_MEMBER')){
             $annoncesItem = $menu->addChild('Publier', array('uri' => '#'))
                 ->setAttribute('dropdown', true);
+            $annoncesItem->addChild('Une annonce', array('route' => 'annonce_new'));
             $annoncesItem->addChild('Une information', array('route' => 'information_new'));
         }
 

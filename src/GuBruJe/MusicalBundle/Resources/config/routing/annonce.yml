@@ -1,0 +1,30 @@
+annonce:
+    path:     /
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:index" }
+
+annonce_show:
+    path:     /{id}/show
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:show" }
+
+annonce_new:
+    path:     /new
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:new" }
+
+annonce_create:
+    path:     /create
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:create" }
+    requirements: { _method: post }
+
+annonce_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:edit" }
+
+annonce_update:
+    path:     /{id}/update
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:update" }
+    requirements: { _method: post|put }
+
+annonce_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:delete" }
+    requirements: { _method: post|delete }
