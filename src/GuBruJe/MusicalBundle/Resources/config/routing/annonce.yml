@@ -36,6 +36,10 @@ annonce_ajouter_commentaire:
 
 annonce_supprimer_commentaire:
     pattern: /supprimer/commentaire/{id}
-    defaults: { _controller: SdzBlogBundle:Blog:supprimerCommentaire }
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:supprimerCommentaire" }
     requirements:
         id: \d+
+
+annonce_rss:
+    pattern: /rss
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:feed" }

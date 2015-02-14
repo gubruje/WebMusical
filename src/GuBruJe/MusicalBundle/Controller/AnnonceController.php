@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use GuBruJe\MusicalBundle\Entity\Annonce;
 use GuBruJe\MusicalBundle\Form\AnnonceType;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Annonce controller.
@@ -308,5 +309,20 @@ class AnnonceController extends Controller
         }
 
         return $this->createForm(new CommentaireType(), $commentaire);
+    }
+
+    /**
+     * Generate the article feed
+     *
+     * @return Response XML Feed
+     */
+    public function feedAction()
+    {
+        $annonces = $this->getDoctrine()->getRepository('GuBruJeMusicalBundle:Annonce')->findLastValideAnnonces();
+
+        $feed = $this->get('eko_feed.feed.manager')->get('annonce');
+        $feed->addFromArray($annonces);
+
+        return new Response($feed->render('rss')); // or 'atom'
     }
 }

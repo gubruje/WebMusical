@@ -4,6 +4,7 @@ namespace GuBruJe\MusicalBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Eko\FeedBundle\Item\Writer\RoutedItemInterface;
 
 /**
  * Annonce
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="GuBruJe\MusicalBundle\Entity\AnnonceRepository")
  */
-class Annonce extends Article
+class Annonce extends Article implements RoutedItemInterface
 {
     /**
      * @var integer
@@ -77,4 +78,73 @@ class Annonce extends Article
     {
         return $this->commentaires;
     }
+
+    /**
+     * This method returns feed item title
+     *
+     *
+     * @return string
+     */
+    public function getFeedItemTitle()
+    {
+        return $this->getTitre();
+    }
+
+    /**
+     * This method returns feed item description (or content)
+     *
+     *
+     * @return string
+     */
+    public function getFeedItemDescription()
+    {
+        return $this->getContenu();
+    }
+
+
+    /**
+     * This method returns item publication date
+     *
+     *
+     * @return \DateTime
+     */
+    public function getFeedItemPubDate()
+    {
+        return $this->getDate();
+    }
+
+    /**
+     * This method returns the name of the route
+     *
+     *
+     * @return string
+     */
+    public function getFeedItemRouteName()
+    {
+        return 'annonce_show';
+    }
+
+    /**
+     * This method returns the parameters for the route.
+     *
+     *
+     * @return array
+     */
+    public function getFeedItemRouteParameters()
+    {
+        return array('id' => $this->id);
+    }
+
+    /**
+     * This method returns the anchor to be appended on this item's url
+     *
+     *
+     * @return string The anchor, without the "#"
+     */
+    public function getFeedItemUrlAnchor()
+    {
+        // TODO: Implement getFeedItemUrlAnchor() method.
+    }
+
+
 }

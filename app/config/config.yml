@@ -157,3 +157,12 @@ stfalcon_tinymce:
                  menubar: false
                  height:  300
                  toolbar1: "bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
+
+eko_feed:
+    feeds:
+        annonce:
+            title:       'Annonces'
+            description: 'Dernières annonces de WebMusical'
+            link:        'http://WebMusical.fr'
+            encoding:    'utf-8'
+            author:      'GuBruJe' # Seulement requis pour les flux de type Atom
