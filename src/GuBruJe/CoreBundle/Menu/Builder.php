@@ -19,6 +19,7 @@ class Builder extends ContainerAware
 
 
         // ... add more children
+        $this->addDefaultItem($menu);
         $this->addMemberItem($menu);
         $this->addAdminItem($menu);
         return $menu;
@@ -39,6 +40,11 @@ class Builder extends ContainerAware
         // ... add more children
 
         return $menu;
+    }
+
+    public function addDefaultItem($menu)
+    {
+        $menu->addChild('Annonces', array('route' => 'annonce'));
     }
 
     public function addAdminItem($menu)
