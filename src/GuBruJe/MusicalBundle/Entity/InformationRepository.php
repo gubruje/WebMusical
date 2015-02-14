@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class InformationRepository extends EntityRepository
 {
-    public function findLastValideInformations($nbr = 3)
+    public function findValideInformations($nbr = 3)
     {
         $qb = $this->createQueryBuilder('i')
                 ->join('i.statut', 's')
