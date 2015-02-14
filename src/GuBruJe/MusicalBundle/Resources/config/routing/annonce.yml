@@ -28,3 +28,14 @@ annonce_delete:
     path:     /{id}/delete
     defaults: { _controller: "GuBruJeMusicalBundle:Annonce:delete" }
     requirements: { _method: post|delete }
+
+
+annonce_ajouter_commentaire:
+    path:     add/{id}/commentaire
+    defaults: { _controller: "GuBruJeMusicalBundle:Annonce:ajouterCommentaire" }
+
+annonce_supprimer_commentaire:
+    pattern: /supprimer/commentaire/{id}
+    defaults: { _controller: SdzBlogBundle:Blog:supprimerCommentaire }
+    requirements:
+        id: \d+

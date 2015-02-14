@@ -4,9 +4,11 @@ namespace GuBruJe\MusicalBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ArticleType extends AbstractType
+class CommentaireType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -14,22 +16,24 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('titre', 'text')
-            ->add('contenu', 'textarea',array('attr' => array(
-                'class' => 'tinymce',
-                'data-theme' => 'bbcode',
-            )))
-        ;
+        $builder->add('contenu', 'textarea');
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function (FormEvent $event) {
+                if (null === $event->getData()->getUser()) {
+                    $event->getForm()->add('auteur', 'text');
+                }
+            }
+        );
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'GuBruJe\MusicalBundle\Entity\Article'
+            'data_class' => 'GuBruJe\MusicalBundle\Entity\Commentaire'
         ));
     }
 
@@ -38,6 +42,6 @@ class ArticleType extends AbstractType
      */
     public function getName()
     {
-        return 'gubruje_musicalbundle_article';
+        return 'gubruje_musicalbundle_commentaire';
     }
 }
