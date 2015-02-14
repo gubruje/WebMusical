@@ -261,32 +261,25 @@ class AnnonceController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_ADMIN")
      * @param Commentaire $commentaire
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function supprimerCommentaireAction(Commentaire $commentaire)
+    public function supprimerCommentaireAction(Request $request, Commentaire $commentaire)
     {
-        // On crÃ©e un formulaire vide, qui ne contiendra que le champ CSRF
-        // Cela permet de protÃ©ger la suppression d'article contre cette faille
         $form = $this->createFormBuilder()->getForm();
-        $request = $this->getRequest();
-        if ($request->getMethod() == 'POST') {
-            $form->bind($request);
+
+        $flash = $this->get('braincrafted_bootstrap.flash');
+        $form->handleRequest($request);
             if ($form->isValid()) { // Ici, isValid ne vÃ©rifie donc que le CSRF
-                // On supprime l'article
                 $em = $this->getDoctrine()->getManager();
                 $em->remove($commentaire);
                 $em->flush();
-                // On dÃ©finit un message flash
-                $this->get('session')->getFlashBag()->add('info', 'Commentaire bien supprimÃ©');
-                // Puis on redirige vers l'accueil
-                return $this->redirect($this->generateUrl('sdzblog_voir', array('slug' => $commentaire->getArticle()->getSlug())));
-            }
-        }
+                $flash->info('Commentaire bien supprimé !');
 
-        // Si la requÃªte est en GET, on affiche une page de confirmation avant de supprimer
-        return $this->render('SdzBlogBundle:Blog:supprimerCommentaire.html.twig', array(
+                return $this->redirect($this->generateUrl('annonce_show', array('id' => $commentaire->getAnnonce()->getId())));
+            }
+
+        return $this->render('GuBruJeMusicalBundle:Commentaire:supprimer.html.twig', array(
             'commentaire' => $commentaire,
             'form' => $form->createView()
         ));

@@ -3,7 +3,7 @@
 <div id="comment{{ commentaire.id }}" itemscope itemtype="http://schema.org/Comment">
     {% if is_granted('ROLE_ADMIN') %}
         <div class="pull-right">
-            <a href="{{ path('annonce_supprimer_commentaire', {'id': commentaire.id}) }}" class="btn ">
+            <a href="{{ path('annonce_supprimer_commentaire', {'id': commentaire.id}) }}" class="btn popup-confirm">
                 <i class="fa fa-trash "></i>
             </a>
         </div>
