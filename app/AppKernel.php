@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new GuBruJe\MusicalBundle\GuBruJeMusicalBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new GuBruJe\BlockBundle\GuBruJeBlockBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
