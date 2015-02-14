@@ -2,10 +2,22 @@ services:
     sonata.admin.information:
         class: GuBruJe\MusicalBundle\Admin\InformationAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Informations" }
+            - { name: sonata.admin, manager_type: orm, group: "Articles", label: "Informations" }
         arguments:
             - ~
             - GuBruJe\MusicalBundle\Entity\Information
+            - ~
+        calls:
+            - [ setTranslationDomain, [GuBruJeMusicalBundle]]
+
+
+    sonata.admin.annonce:
+        class: GuBruJe\MusicalBundle\Admin\AnnonceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Articles", label: "Annonces" }
+        arguments:
+            - ~
+            - GuBruJe\MusicalBundle\Entity\Annonce
             - ~
         calls:
             - [ setTranslationDomain, [GuBruJeMusicalBundle]]
