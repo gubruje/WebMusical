@@ -16,7 +16,10 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', 'text')
-            ->add('contenu', 'textarea')
+            ->add('contenu', 'textarea',array('attr' => array(
+                'class' => 'tinymce',
+                'data-theme' => 'bbcode' // Skip it if you want to use default theme
+            )))
         ;
     }
     
